@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221007_create-tags.yml
+      author: andrei.sarateanu
+      failOnError: true
+      changes:
+        - sql:
+            sql:  CREATE TABLE tags (
+              tag_id UUID PRIMARY KEY,
+              tag_name VARCHAR NOT NULL,
+              subsidiary_id UUID NOT NULL,
+              CONSTRAINT fk_subsidiary
+              FOREIGN KEY(subsidiary_id)
+              REFERENCES subsidiary(subsidiary_id)
+              );

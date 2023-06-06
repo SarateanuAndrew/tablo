@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221005_create-food-menu
+      author: andrei.sarateanu
+      failOnError: true
+      changes:
+        - sql:
+            sql:  CREATE TABLE food_menu (
+              food_id UUID PRIMARY KEY,
+              food_name VARCHAR NOT NULL UNIQUE,
+              food_photo TEXT NOT NULL UNIQUE,
+              food_ingredients TEXT,
+              is_vegetarian BOOLEAN NOT NULL,
+              is_spicy BOOLEAN NOT NULL,
+              food_price DOUBLE PRECISION NOT NULL,
+              is_deliverable BOOLEAN NOT NULL,
+              status VARCHAR NOT NULL,
+              restaurant_id UUID NOT NULL,
+              CONSTRAINT fk_restaurant
+              FOREIGN KEY(restaurant_id)
+              REFERENCES restaurant(restaurant_id)
+              );

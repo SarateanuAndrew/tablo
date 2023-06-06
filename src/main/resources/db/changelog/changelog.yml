@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - include:
+      - file: 20221005_create-restaurant.yml
+      - relativeToChangelogFile: true
+  - include:
+      - file: 20221005_create-subsidiary.yml
+      - relativeToChangelogFile: true
+  - include:
+      - file: 20221005_create-food-menu.yml
+      - relativeToChangelogFile: true
+  - include:
+      - file: 20221006_create-drinks-menu.yml
+      - relativeToChangelogFile: true
+  - include:
+      - file: 20221007_create-tags.yml
+      - relativeToChangelogFile: truex

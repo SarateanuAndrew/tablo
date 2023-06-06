@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221006_create-drinks-menu
+      author: andrei.sarateanu
+      failOnError: true
+      changes:
+        - sql:
+            sql:  CREATE TABLE drinks_menu (
+              drink_id UUID PRIMARY KEY,
+              drink_name VARCHAR NOT NULL UNIQUE,
+              drink_photo TEXT NOT NULL UNIQUE,
+              drink_ingredients TEXT,
+              is_alcoholic BOOLEAN NOT NULL,
+              status VARCHAR NOT NULL,
+              is_deliverable BOOLEAN NOT NULL,
+              drink_price DOUBLE PRECISION NOT NULL,
+              restaurant_id UUID NOT NULL,
+              CONSTRAINT fk_restaurant
+              FOREIGN KEY(restaurant_id)
+              REFERENCES restaurant(restaurant_id)
+              );
